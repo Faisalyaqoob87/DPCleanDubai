@@ -224,7 +224,7 @@ export class HomePageComponent implements AfterViewInit {
       `Name: ${encodeURIComponent(value.firstName)} ${encodeURIComponent(value.lastName)}` +
       `%0AAddress: ${encodeURIComponent(value.address)}` +
       `%0AWhatsApp: ${encodeURIComponent(value.whatsappNumber)}` +
-      `%0A%0ATotal: PKR ${this.cartTotal()}` +
+      
       notes;
 
     // ✅ MOBILE + DESKTOP SUPPORT
