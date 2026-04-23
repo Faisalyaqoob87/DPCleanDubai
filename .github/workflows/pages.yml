@@ -19,7 +19,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist\dpcleantechnicalservices
+          path: dist/dpcleantechnicalservices
   deploy:
     needs: build
     runs-on: ubuntu-latest
