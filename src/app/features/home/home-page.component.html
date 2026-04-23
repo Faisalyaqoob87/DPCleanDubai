@@ -1,0 +1,270 @@
+<app-site-header [itemCount]="cartCount()" (cartClick)="isCartOpen.set(true)" />
+
+<main class="page-shell">
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow">Professional Home & Technical Services</span>
+      <h1>Reliable solutions for modern homes and commercial spaces.</h1>
+      <p>
+        We provide expert services including deep cleaning, electrical systems, plumbing,
+        HVAC solutions, and construction finishing ensuring quality, durability,
+        and complete customer satisfaction.
+      </p>
+      <div class="hero-actions">
+        <a routerLink="/shop" class="primary-link">Explore Collection</a>
+        <button type="button" class="secondary-link" (click)="openCheckout()">WhatsApp Order</button>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img src="assets/images/checklist.png" alt="dpcleantechnicalservices hero display" />
+      <div class="floating-card">
+        <strong>Trusted & Experienced Team</strong>
+        <span>Skilled workers, modern tools, and guaranteed service quality.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-bar">
+    <div class="marquee">
+      <span><i class="fa-solid fa-truck-fast"></i> On-Time Service</span>
+      <span><i class="fa-solid fa-hand-holding-dollar"></i> Affordable Pricing</span>
+      <span><i class="fa-solid fa-leaf"></i> Eco-Friendly Solutions</span>
+      <span><i class="fa-solid fa-star"></i> Trusted by Hundreds of Clients</span>
+      <span><i class="fa-solid fa-ruler-combined"></i> Customized Service Plans</span>
+    </div>
+  </section>
+
+  <section id="products" class="section">
+    <div class="section-heading">
+      <span class="eyebrow">Collections</span>
+      <h2>Our Engineering Services</h2>
+      <p>Precision-driven electrical systems and deep technical services engineered for reliability, scalability, and
+        optimized performance in modern infrastructures.</p>
+    </div>
+
+    <div class="filter-row">
+      @for (filter of filters; track filter) {
+      <button type="button" class="filter-pill" [class.active]="selectedFilter() === filter"
+        (click)="setFilter(filter)">
+        {{ filter }}
+      </button>
+      }
+    </div>
+
+    <div class="product-grid">
+      @for (product of filteredProducts(); track product.id) {
+      <article class="product-card">
+        <img [src]="product.image" [alt]="product.name" />
+        <div class="product-copy">
+          <div>
+            <p class="category">{{ product.category }}</p>
+            <h3>{{ product.name }}</h3>
+            <p class="description">{{ product.desc }}</p>
+          </div>
+        </div>
+      </article>
+      }
+    </div>
+  </section>
+
+  <section class="offer-banner">
+    <div>
+      <span class="eyebrow">Limited Time Offer</span>
+      <h2>Get up to 20% off on selected services.</h2>
+    </div>
+    <div class="countdown">
+      @for (time of countdown(); track time) {
+      <span>{{ time }}</span>
+      }
+    </div>
+  </section>
+
+  <section id="story" class="section split">
+    <div>
+      <span class="eyebrow">Who We Are</span>
+      <h2>Delivering skilled workmanship with modern tools and trusted expertise.</h2>
+      <p>
+        Our team consists of experienced professionals specializing in cleaning,
+        HVAC systems, plumbing, and construction finishing work.
+      </p>
+
+      <ul class="check-list">
+        <li>Certified and experienced technicians</li>
+        <li>Latest tools and industry practices</li>
+        <li>Reliable and timely project delivery</li>
+      </ul>
+    </div>
+    <img src="assets/images/checklist.png" alt="Artisan craftsmanship illustration" />
+  </section>
+
+  <section class="stats-strip">
+    <article>
+      <strong>2,000+</strong>
+      <span>Projects completed across residential & commercial sectors</span>
+    </article>
+    <article>
+      <strong>45+</strong>
+      <span>Skilled technicians and engineers</span>
+    </article>
+    <article>
+      <strong>5 years</strong>
+      <span>Service warranty and customer support</span>
+    </article>
+  </section>
+
+  <section id="gallery" class="section">
+    <div class="section-heading">
+      <span class="eyebrow">Our Work</span>
+      <h2>See our completed service projects.</h2>
+    </div>
+
+    <div class="gallery-grid">
+      <img src="assets/images/plumbing.jpg" alt="Wooden decor gallery 1" />
+      <img src="assets/images/painting.jpg" alt="Wooden decor gallery 2" />
+      <img src="assets/images/tiles.jpg" alt="Wooden decor gallery 3" />
+      <img src="assets/images/cleaning.jpg" alt="Wooden decor gallery 4" />
+      <img src="assets/images/ac.png" alt="Wooden decor gallery 5" />
+      <img src="assets/images/duct.jpg" alt="Wooden decor gallery 6" />
+      
+    </div>
+  </section>
+
+  <section class="section bespoke">
+    <div>
+      <span class="eyebrow">Custom Service Solutions</span>
+      <h2>Tailored services based on your exact requirements.</h2>
+      <p>
+        Share your needs and we’ll provide customized solutions for your space.
+      </p>
+    </div>
+    <div class="bespoke-tags">
+      <span>Free Inspection</span>
+      <span>Expert Consultation</span>
+      <span>After-Service Support</span>
+    </div>
+  </section>
+
+  <section class="section reviews">
+    <div class="section-heading">
+      <span class="eyebrow">Happy Customers</span>
+      <h2>Homes are falling in love with the warmth.</h2>
+    </div>
+
+    <div class="review-grid">
+      <article>
+        <p class="stars">★★★★★</p>
+        <p>“Tile & block work was done with great precision. Very neat finishing.”</p>
+        <strong>Ayesha K. · Karachi</strong>
+      </article>
+      <article>
+        <p class="stars">★★★★★</p>
+        <p>“Plastering and painting completely transformed our house. Highly recommended.”</p>
+        <strong>Bilal M. · Lahore</strong>
+      </article>
+      <article>
+        <p class="stars">★★★★★</p>
+        <p>“Plumbing issue was fixed quickly. Professional and reliable team.”</p>
+        <strong>Zara T. · Islamabad</strong>
+      </article>
+      <article>
+        <p class="stars">★★★★★</p>
+        <p>“Tile & block work was done with great precision. Very neat finishing.”</p>
+        <strong>Ayesha K. · Karachi</strong>
+      </article>
+      <article>
+        <p class="stars">★★★★★</p>
+        <p>“Plastering and painting completely transformed our house. Highly recommended.”</p>
+        <strong>Bilal M. · Lahore</strong>
+      </article>
+      <article>
+        <p class="stars">★★★★★</p>
+        <p>“Plumbing issue was fixed quickly. Professional and reliable team.”</p>
+        <strong>Zara T. · Islamabad</strong>
+      </article>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="section-heading">
+      <span class="eyebrow">FAQs</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+
+    <div class="faq-list">
+      @for (faq of faqs; track faq.question; let i = $index) {
+      <article class="faq-item" [class.open]="expandedFaq() === i">
+        <button type="button" (click)="toggleFaq(i)">
+          <span>{{ faq.question }}</span>
+          <i class="fa-solid" [class.fa-plus]="expandedFaq() !== i" [class.fa-minus]="expandedFaq() === i"></i>
+        </button>
+        @if (expandedFaq() === i) {
+        <p>{{ faq.answer }}</p>
+        }
+      </article>
+      }
+    </div>
+  </section>
+
+  <section class="cta-strip">
+    <h2>Book trusted technicians in minutes</h2>
+    <div class="hero-actions">
+      <button type="button" class="secondary-link inverted" (click)="openCheckout()">
+        WhatsApp Order
+      </button>
+    </div>
+  </section>
+</main>
+
+<app-site-footer />
+
+@if (selectedProduct() && isProductModalOpen()) {
+<div class="overlay" (click)="closeProductModal()">
+  <section class="modal-card" (click)="$event.stopPropagation()">
+    <button type="button" class="modal-close" (click)="closeProductModal()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <img [src]="selectedProduct()!.image" [alt]="selectedProduct()!.name" />
+    <div>
+      <p class="eyebrow">{{ selectedProduct()!.category }}</p>
+      <h2>{{ selectedProduct()!.name }}</h2>
+      <p>{{ selectedProduct()!.desc }}</p>
+
+      <div class="qty-row">
+        <button type="button" (click)="changeSelectedQuantity(-1)">-</button>
+        <span>{{ selectedQuantity() }}</span>
+        <button type="button" (click)="changeSelectedQuantity(1)">+</button>
+      </div>
+    </div>
+  </section>
+</div>
+}
+
+@if (isOrderModalOpen()) {
+<div class="overlay" (click)="closeCheckout()">
+  <section class="checkout-card" (click)="$event.stopPropagation()">
+    <div class="cart-header">
+      <h2>Checkout Details</h2>
+      <button type="button" (click)="closeCheckout()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <form [formGroup]="orderForm" (ngSubmit)="placeOrder()">
+      <div class="input-grid">
+        <input type="text" formControlName="firstName" placeholder="First Name" />
+        <input type="text" formControlName="lastName" placeholder="Last Name" />
+      </div>
+      <input type="text" formControlName="address" placeholder="Address" />
+      <input type="tel" formControlName="whatsappNumber" placeholder="WhatsApp Number" />
+      <textarea formControlName="notes" rows="4" placeholder="Notes (optional)"></textarea>
+      <button type="submit" class="primary-wide">Place Order on WhatsApp</button>
+    </form>
+  </section>
+</div>
+}
+
+
+@if (toastMessage()) {
+<div class="toast">{{ toastMessage() }}</div>
+}

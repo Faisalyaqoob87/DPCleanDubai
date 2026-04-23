@@ -1,0 +1,65 @@
+.site-footer {
+  background: #2f241b;
+  color: #f5ecdf;
+  padding: 3rem 1.5rem;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.brand-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.brand-line img {
+  width: 42px;
+  height: 42px;
+}
+
+.brand-line span {
+  font-family: 'Manrope';
+  font-size: 1.5rem;
+}
+
+h3 {
+  margin-top: 0;
+  color: white;
+}
+
+a,
+p {
+  display: block;
+  color: #f5ecdf;
+  text-decoration: none;
+  margin: 0.4rem 0;
+}
+
+@media (max-width: 820px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footer-bottom {
+  text-align: center;
+  color: #ccc;
+}
+
+.footer-bottom .privacy {
+  font-weight: 600;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.footer-bottom .copyright {
+  font-size: 14px;
+  margin: 0;
+}
